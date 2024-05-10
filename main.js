@@ -1,4 +1,5 @@
 import express from 'express';
+import movieRoutes from './routes/movies.route.js';
 
 const app = express();
 const PORT = 6969; 
@@ -11,29 +12,9 @@ app.get('/',(req,res)=>{
 
 // CRUD functionality of movies
 
-// R - For Reading
+// CLIENT -> MIDDLEWARE -> SERVER
 
-app.get('./movies',(req,res) => {
-  
-});
-
-// C - For creating movies
-
-app.post('./movies',() => {
-
-});
-
-// U - For update movies
-
-app.put('./movies/:id',() => {
-
-});
-
-// D - For delete movies
-
-app.delete('./movies/:id',() => {
-
-})
+app.use('/movies', movieRoutes); 
 
 
 app.listen(PORT, () => {
